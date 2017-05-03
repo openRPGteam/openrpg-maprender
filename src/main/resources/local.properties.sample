@@ -1,0 +1,4 @@
+TOKEN = bot token
+PROXY_ENABLED=NO
+PROXY_IP = ip
+PROXY_PORT = port
