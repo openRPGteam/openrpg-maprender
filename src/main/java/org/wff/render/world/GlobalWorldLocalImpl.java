@@ -1,18 +1,25 @@
 package org.wff.render.world;
 
-import org.wff.render.utils.Emoji;
+import com.google.inject.Inject;
 import org.wff.render.utils.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GlobalWorldLocalImpl implements GlobalWorldInterface {
-    @Override
-    public List<Emoji> getWorldMap(Pair coords) {
-        List<Emoji> res = new ArrayList<>();
-        for (int i = 1; i <= 10; ++i) {
-            res.add(Emoji.randomEmoji());
+    private byte world[][] = new byte[10][10];
+    private Pair hero;
+
+    @Inject
+    public GlobalWorldLocalImpl() {
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j <= 9; j++) {
+                this.world[i][j] = 55;
+            }
         }
-        return res;
+
+    }
+
+    @Override
+    public byte[][] getWorldMap(Pair coords) {
+        this.world[coords.getX() - 1][coords.getY() - 1] = 23;
+        return this.world;
     }
 }

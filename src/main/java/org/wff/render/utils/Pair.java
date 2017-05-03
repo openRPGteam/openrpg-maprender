@@ -3,10 +3,10 @@ package org.wff.render.utils;
 import java.io.Serializable;
 
 public class Pair implements Serializable {
-    private long x;
-    private long y;
+    private int x;
+    private int y;
 
-    public Pair(long x, long y) {
+    public Pair(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -14,19 +14,19 @@ public class Pair implements Serializable {
     public Pair() {
     }
 
-    public long getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(long x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public long getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(long y) {
+    public void setY(int y) {
         this.y = y;
     }
 }

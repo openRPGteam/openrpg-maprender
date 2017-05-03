@@ -179,6 +179,10 @@ public enum Emoji {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 
+    public static Emoji getEmoji(int i) {
+        return VALUES.get(i);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

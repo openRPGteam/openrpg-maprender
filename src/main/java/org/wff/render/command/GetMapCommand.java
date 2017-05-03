@@ -9,8 +9,6 @@ import org.wff.render.utils.Emoji;
 import org.wff.render.utils.Pair;
 import org.wff.render.world.GlobalWorldInterface;
 
-import java.util.List;
-
 import static com.pengrad.telegrambot.request.SendMessage.message;
 
 public class GetMapCommand extends MessageCommand {
@@ -24,11 +22,13 @@ public class GetMapCommand extends MessageCommand {
 
     @Override
     public void execute(TelegramBot telegramBot, User user, Chat chat, String s) {
+        byte[][] world;
         StringBuilder messageBuilder = new StringBuilder();
-        for (int i = 1; i <= 10; ++i) {
-            List<Emoji> custom = globalWorldInterface.getWorldMap(new Pair(1, 1));
-            for (Emoji e : custom) {
-                messageBuilder.append(e.toString());
+        world = globalWorldInterface.getWorldMap(new Pair(1, 1));
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j <= 9; j++) {
+                Emoji custom = Emoji.getEmoji(world[i][j]);
+                messageBuilder.append(custom.toString());
             }
             messageBuilder.append("\t\n");
         }
